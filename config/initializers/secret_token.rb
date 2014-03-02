@@ -20,6 +20,7 @@ def secure_token
     # Generate a new token and store it in token file
     token = SecureRandom.hex(64)
     File.write(token_file, token)
+    token
   end
 end
 SampleApp::Application.config.secret_key_base = secure_token
